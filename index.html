@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+    <title>Registration Form</title>
+    <script>
+        function showAlert() {
+            alert("Thank you for registering!");
+        }
+
+        // Function to store form data in local storage
+        function storeFormData() {
+            // Get form inputs
+            var fullName = document.querySelector('input[name="fullName"]').value;
+            var rollNo = document.querySelector('input[name="rollNo"]').value;
+            var email = document.querySelector('input[name="email"]').value;
+            var regNo = document.querySelector('input[name="regNo"]').value;
+            var phoneNumber = document.querySelector('input[name="phoneNumber"]').value;
+            var branch = document.querySelector('select[name="branch"]').value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var isBeginner = document.querySelector('input[name="isBeginner"]:checked').value;
+
+            // Create an object to store form data
+            var formData = {
+                fullName: fullName,
+                rollNo: rollNo,
+                email: email,
+                regNo: regNo,
+                phoneNumber: phoneNumber,
+                branch: branch,
+                gender: gender,
+                isBeginner: isBeginner
+            };
+
+            // Store form data in local storage
+            localStorage.setItem('formData', JSON.stringify(formData));
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="heading"><h1>Event Registration Form</h1></div>
+        <form action="#" onsubmit="storeFormData()">
+            <div class="card-details">
+                <div class="card-box">
+                    <span class="details">Full Name*</span>
+                    <input type="text" name="fullName" placeholder="Enter your name" required>
+                </div>
+                <div class="card-box">
+                    <span class="details">Roll No*</span>
+                    <input type="text" name="rollNo" placeholder="Enter your Roll No" required>
+                </div>
+                
+                <div class="card-box">
+                    <span class="details">Email*</span>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="card-box">
+                    <span class="details">Reg No*</span>
+                    <input type="text" name="regNo" placeholder="Enter your Reg No" required>
+                </div>
+                <div class="card-box">
+                    <span class="details">Phone Number*</span>
+                    <input type="phone" name="phoneNumber" placeholder="Your phone number" required>
+                </div>
+                
+                <div class="card-box">
+                    <span class="details">Branch*</span>
+                    <select class="option" name="branch" required>
+                        <option disabled="disabled" selected="selected">Branch Name</option>
+                        <option>Computer Science and Engineering</option>
+                        <option>Electronics and Communication Engineering</option>
+                        <option>Electrical Engineering</option>
+                        <option>Mechanical Engineering</option>
+                        <option>Chemical Engineering</option>
+                        <option>Civil Engineering</option>
+                        <option>Metallurgical and Materials Engineering</option>
+                        <option>Biotechnology</option>
+                    </select>
+                </div>
+                
+            </div>
+            
+            <div class="circal form">
+                <span class="circal-title"><h4>Gender</h4></span>
+                <div class="category">
+                    <input type="radio" name="gender" value="Male" required>Male&nbsp;
+                    <input type="radio" name="gender" value="Female" required>Female
+                    <input type="radio" name="gender" value="Others" required>Others
+                </div>
+            </div>
+            <br>
+            
+            <div class="circal form">
+                <span class="circal-title"><h4>Are you a beginner?</h4></span>
+                <div class="category">
+                    <input type="radio" name="isBeginner" value="Yes" required>Yes
+                    <input type="radio" name="isBeginner" value="No" required>No
+                </div>
+            </div>
+
+            <div class="button">
+                <input type="submit" value="Register" onclick="showAlert()">
+            </div>
+            
+        </form>
+    </div>
+</body>
+</html>
